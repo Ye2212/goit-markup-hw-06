@@ -926,7 +926,6 @@ color: var(--primary-text-color);
   visibility: hidden;
 }
 .modal {
-  
   position: absolute;
   width: 528px;
   height: 581px;
@@ -953,9 +952,22 @@ color: var(--primary-text-color);
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .icon-btn-close{
   fill: #000000;
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-close:hover,
+.btn-close:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+.btn-close:hover .icon-btn-close,
+.btn-close:focus .icon-btn-close {
+  fill:var(--accent-color);
 }
 .form-title-text {
   margin-bottom: 12px;
@@ -970,19 +982,22 @@ color: var(--primary-text-color);
   color: var(--title-text-color);
 }
 
-.svg-form {
+.icon-form {
   fill:var(--title-text-color);
   position: absolute;
   top: 50%;
-  left: 13px;
+  left: 15px;
   transform: translateY(-50%);
 
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.modal-form-field {
+  margin-bottom: 10px;
+}
 .user-data-label {
   display: block;
 
-  margin-bottom: 10px;
+  margin-bottom: 4px;
 
   font-family: Roboto;
   font-style: normal;
@@ -991,12 +1006,9 @@ color: var(--primary-text-color);
   line-height: 1.17;
   letter-spacing: 0.01em;
   color: var(--primary-text-color);
-  
- 
 }
 .input-wrapper {
   display: flex;
-  margin-top: 4px;
   position: relative;
 }
 .input {
@@ -1015,10 +1027,124 @@ color: var(--primary-text-color);
   line-height: 1.17;
   letter-spacing: 0.01em;
   color: var(--primary-text-color);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.user-data-label:hover .svg-form {
+input:hover,
+input:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+.input:hover + .icon-form,
+.input:focus + .icon-form  {
   fill:var(--accent-color);
 }
-.input:focus .svg-form {
-  fill: var(--accent-color);
+.modal-comment {
+  width: 100%;
+  height: 120px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  padding-left: 15px;
+  padding-top: 10px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  /* color: rgba(117, 117, 117, 0.5); */
+  resize: none;
+}
+.modal-comment::placeholder {
+  color: rgba(117, 117, 117, 0.5); 
+}
+
+/* Для того, чтобы добавть check через bacground-image */
+/* .check-label {
+  display: flex;
+  align-items: center;
+}
+.check-label::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  border: 2px solid #212121;
+  border-radius: 2px;
+  margin-right: 8px;
+}
+.checkbox:checked + .check-label::before {
+  background-image: url(../images/design-img/vector.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-color: var(--accent-color);
+
+  border: none;
+ } */
+
+ /* Вставляем иконку галочки через спрайт */
+.check-label {
+  display: flex;
+  align-items: center;
+}
+.icon-check {
+  width: 15px;
+  height: 15px;
+  border: 2px solid #212121;
+  border-radius: 2px;
+  margin-right: 8px;
+  /* центрируем галочку */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.check-label:hover,
+.check-label:focus {
+  border-color: var(--accent-color);
+}
+.checkbox:checked + .check-label .icon-check {
+  background-color: var(--accent-color);
+  border: none;
+} 
+.icon-check {
+  background-color: transparent;
+}
+.checkbox:focus .icon-check {
+  border-color: var(--accent-color);
+}
+.modal-policy-link {
+  color: var(--accent-color);
+  margin-left: 5px;
+}
+.modal-form-btn {
+  display: block;
+  margin: 30px auto 40px;
+
+  width: 200px;
+  height: 50px;
+  
+  padding: 10px 55px;
+
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  color:var(--white-color);
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .modal-form-btn:hover,
+  .modal-form-btnt:focus {
+    background-color: #188ce8;
 }
