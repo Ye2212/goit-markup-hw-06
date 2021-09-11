@@ -927,31 +927,37 @@ color: var(--primary-text-color);
 }
 .modal {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   width: 528px;
   height: 581px;
   padding: 40px;
 
-  background: var(--white-color);
+  background-color: var(--white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  opacity: 1;
 }
 .btn-close {
   width: 30px;
   height: 30px;
-  border: 1px solid rgba(0, 0, 0, 0,1);
-  background-color: unset;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: transparent;
   border-radius: 50%;
+  cursor: pointer;
+
   position: absolute;
   right: 8px;
   top: 8px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -993,7 +999,9 @@ color: var(--primary-text-color);
 }
 .modal-form-field {
   margin-bottom: 10px;
+  /* background-color: yellowgreen; */
 }
+
 .user-data-label {
   display: block;
 
@@ -1041,9 +1049,14 @@ input:focus {
 .input:focus + .icon-form  {
   fill:var(--accent-color);
 }
+.modal-comment-wrapper {
+  margin-bottom: 30px;
+  /* background-color: orange; */
+}
 .modal-comment {
   width: 100%;
   height: 120px;
+  background-color: transparent;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   padding-left: 15px;
@@ -1068,7 +1081,16 @@ input:focus {
   border-color: var(--accent-color);
   outline: none;
 }
-
+.checkbox-policy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  /* background-color: lightblue; */
+}
+.checkbox-policy-wrapper {
+  display: flex;
+}
 /* Для того, чтобы добавть check через bacground-image */
 /* .check-label {
   display: flex;
@@ -1093,14 +1115,18 @@ input:focus {
  } */
 
  /* Вставляем иконку галочки через спрайт */
+ /* Выравниваем строку с чекбоксом по центру */
 .check-label {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .icon-check {
   width: 15px;
   height: 15px;
   border: 2px solid #212121;
+  background-color: transparent;
+  cursor: pointer;
   border-radius: 2px;
   margin-right: 8px;
   /* центрируем галочку */
@@ -1110,24 +1136,23 @@ input:focus {
 
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.checkbox:hover + .check-label > .icon-check,
-.checkbox:focus + .check-label > .icon-check {
+
+.checkbox:hover + .check-label  .icon-check,
+.checkbox:focus + .check-label  .icon-check {
   border-color: var(--accent-color);
 }
 .checkbox:checked + .check-label .icon-check {
   background-color: var(--accent-color);
   border: none;
 } 
-.icon-check {
-  background-color: transparent;
-}
+
 .modal-policy-link {
   color: var(--accent-color);
   margin-left: 5px;
 }
 .modal-form-btn {
-  display: block;
-  margin: 30px auto 40px;
+  display: block; 
+  margin: auto;
 
   width: 200px;
   height: 50px;
@@ -1140,6 +1165,7 @@ input:focus {
   color:var(--white-color);
   font-family: Roboto;
   font-style: normal;
+  align-self: center;
   font-weight: 700;
   
   background-color: var(--accent-color);
